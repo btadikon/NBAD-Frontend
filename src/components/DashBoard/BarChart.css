@@ -1,0 +1,5 @@
+.recharts-bar-rectangle:hover {
+    fill: gold; /* Change the fill color on hover */
+    stroke: purple; /* Change the stroke color on hover */
+  }
+  

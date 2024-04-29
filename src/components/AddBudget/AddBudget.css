@@ -1,0 +1,87 @@
+/* Styles for AddBudget component */
+.add-budget-container {
+  margin: 20px auto;
+  max-width: 600px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.add-budget-title {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.add-budget-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.add-budget-input {
+  width: 100%;
+}
+
+.add-budget-button {
+  width: 50%;
+  margin: 0 auto;
+}
+
+/* Styles for CustomizedTables component */
+.customized-table-container {
+  margin-top: 20px;
+}
+
+.customized-table {
+  min-width: 700px;
+}
+
+.customized-table-header {
+  background-color: #000;
+  color: #fff;
+}
+
+.customized-table-row:nth-of-type(odd) {
+  background-color: #f5f5f5;
+}
+
+.customized-table-action-cell {
+  text-align: right;
+}
+
+.customized-table-action-cell:hover {
+  cursor: pointer;
+}
+
+/* Pagination styles */
+.pagination-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.pagination-button {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  color: #333;
+  padding: 5px 10px;
+  margin: 0 5px;
+  cursor: pointer;
+}
+
+.pagination-button.active {
+  background-color: #007bff;
+  color: #fff;
+  border-color: #007bff;
+}
+
+.pagination-button:hover {
+  background-color: #007bff;
+  color: #fff;
+  border-color: #007bff;
+}
+
+.pagination-button.disabled {
+  pointer-events: none;
+  opacity: 0.6;
+}

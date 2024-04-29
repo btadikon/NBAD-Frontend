@@ -1,0 +1,19 @@
+.container{
+    width: 80%;
+    margin: auto;
+}
+.budgetContainer{
+    width:100%;
+    display: flex;
+    background-color: black;
+    height:150px;
+    margin-top: 50px;
+    justify-content:space-around;
+    align-items: center;
+}
+.charts{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}

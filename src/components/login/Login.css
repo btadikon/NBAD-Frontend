@@ -1,0 +1,42 @@
+.loginForm {
+    width: 100%;
+    max-width: 400px;
+    margin: auto;
+    margin-top: 100px;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .loginForm .MuiCardContent-root {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .loginForm .MuiTypography-h5 {
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  .loginForm .MuiTextField-root {
+    margin-bottom: 15px;
+  }
+  
+  .loginForm .MuiButton-root {
+    width: 100%;
+    margin-top: 15px;
+  }
+  
+  .loginForm .MuiTypography-body1 {
+    margin-top: 20px;
+    text-align: center;
+  }
+  
+  /* Media queries for responsiveness */
+  @media (max-width: 600px) {
+    .loginForm {
+      max-width: 300px;
+    }
+  }
+  

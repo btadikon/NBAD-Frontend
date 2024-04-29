@@ -1,0 +1,1 @@
+export const baseURL = 'https://walrus-app-ads9h.ondigitalocean.app'

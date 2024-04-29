@@ -1,0 +1,17 @@
+.year-month-picker {
+    display: flex;
+    gap: 10px;
+    margin-left: 0;
+  }
+  
+  .year-month-picker select {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    outline: none;
+  }
+  
+  .year-month-picker select:focus {
+    border-color: #007bff;
+  }
+  
