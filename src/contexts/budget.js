@@ -49,7 +49,7 @@ export const BudgetProvider = ({ children }) => {
 
   const getRefreshToken = async () => {
     try {
-      const response = await Axios.post("/auth/getRefreshToken", {
+      const response = await Axios.post("/user/getRefreshToken", {
         refreshToken: localStorage.getItem("refreshToken"),
       });
       const { authToken, refreshToken } = response.data;

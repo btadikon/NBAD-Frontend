@@ -24,7 +24,7 @@ function App() {
   useEffect(() => {
     const tokenInterval = setInterval(() => {
       if (authStatus && localStorage.getItem("token")) setOpenDialog(true);
-    }, 90000);
+    }, 30000);
     return () => clearInterval(tokenInterval);
   }, [authStatus]);
 
