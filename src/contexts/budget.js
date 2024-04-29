@@ -52,10 +52,10 @@ export const BudgetProvider = ({ children }) => {
       const response = await Axios.post("/user/refreshtoken", {
         refreshToken: localStorage.getItem("refreshToken"),
       });
-      const { authToken, refreshToken } = response.data;
-      Axios.defaults.headers.common["Authorization"] = `Bearer ${authToken}`; // for all requests
-       localStorage.setItem('token',authToken);
-       localStorage.setItem('refreshToken',refreshToken);
+      const { token } = response.data;
+      Axios.defaults.headers.common["Authorization"] = `Bearer ${token}`; // for all requests
+       localStorage.setItem('token',token);
+       // localStorage.setItem('refreshToken',refreshToken);
   
       toast.success("Refreshed token successFull");
     } catch (error) {
