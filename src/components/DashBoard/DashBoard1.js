@@ -136,9 +136,9 @@ function DashBoard() {
 
   const transformChartDataForPieChart = () => {
     const { chartData } = generateChartData();
-
+    console.log("chartData", chartData);
     const labels = chartData.map(data => data.Category);
-    const budgets = chartData.map(data => data.Budget);
+    const budgets = chartData.map(data => data.Expenses);
 
     const colorScale = schemeCategory10;
     const pieChartData = {
@@ -176,7 +176,7 @@ function DashBoard() {
         <h2 style={{ textAlign: 'center' }}>Budget Vs Expense</h2>
         <div className="charts">
           <DoubleBarChart data={generateChartData()} />
-          <h2>Monthly Budget</h2>
+          <h2>Monthly Expense</h2>
           <PieChart data={transformChartDataForPieChart()} />
           <div>
             <Radarchart data={generateChartData()} />
