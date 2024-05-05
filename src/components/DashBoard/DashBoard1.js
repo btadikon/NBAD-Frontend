@@ -8,6 +8,8 @@ import { useUrBudget } from '../../contexts/budget';
 import MonthCharts from './monthlyChart';
 import { toast } from 'react-toastify';
 import { useNavigate } from 'react-router-dom'
+import { PieChart } from './PieChart';
+import { schemeCategory10 } from 'd3-scale-chromatic';
 
 function DashBoard() {
   const { allBudgets, Expenses, fetchUrCuurentMonthBudget, authStatus } = useUrBudget();
@@ -161,6 +163,28 @@ function DashBoard() {
     setSelectedMonth(month);
   };
 
+  const transformChartDataForPieChart = () => {
+    const { chartData } = generateChartData();
+  
+    const labels = chartData.map(data => data.Category);
+    const budgets = chartData.map(data => data.Budget);
+  
+    const colorScale = schemeCategory10;
+    const pieChartData = {
+      labels: labels,
+      datasets: [{
+        label: 'Budget For Categories',
+        data: budgets,
+        backgroundColor: labels.map((label, index) => colorScale[index % colorScale.length]),
+        borderColor: colorScale,
+        borderWidth: 1,
+      }]
+    };
+  
+    return pieChartData;
+  };
+  
+
   return (
     <div className="container">
       <div style={{ marginTop: '100px' }}>
@@ -181,7 +205,8 @@ function DashBoard() {
         <h2 style={{ textAlign: 'center' }}>Budget Vs Expense</h2>
         <div className="charts">
           <DoubleBarChart data={generateChartData()} />
-          <Radarchart data={generateChartData()} />
+          <h2>Monthly Budget</h2>
+         <PieChart data={transformChartDataForPieChart()}/>
           <div>
             <h2 style={{ textAlign: 'center' }}>Monthly Expenses</h2>
             <MonthCharts data={generateChartData()} />

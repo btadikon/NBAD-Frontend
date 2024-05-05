@@ -23,15 +23,14 @@ function App() {
  
   useEffect(() => {
     const tokenInterval = setInterval(() => {
-      if (authStatus && localStorage.getItem("token")) setOpenDialog(true);
-    }, 30000);
+      if (authStatus && localStorage.getItem("token")) callRefreshToken();
+    }, 20000);
     return () => clearInterval(tokenInterval);
   }, [authStatus]);
 
-  const handleCloseDialog = async () => {
+  const callRefreshToken = async () => {
     try {
       await getRefreshToken();
-      setOpenDialog(false);
     }
     catch (error) {
 
@@ -69,15 +68,6 @@ function App() {
         <Route path='/AddBudget' element = {<AddBudget/>}/>
         <Route path='/AddExpense' element = {<AddExpense/>}/>
       </Routes>
-      <Dialog open={openDialog}>
-          <DialogTitle>Click on Ok to get refresh token</DialogTitle>
-          <DialogActions>
-            <Button onClick={() => handleCloseDialog()}>
-              OK
-            </Button>
-          </DialogActions>
-        </Dialog>
-
       <ToastContainer/>
     </div>
   );
