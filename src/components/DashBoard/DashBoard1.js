@@ -18,8 +18,7 @@ function DashBoard() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    if(authStatus) 
-    {
+    if (authStatus) {
       const fetchData = async () => {
         try {
           await fetchUrCuurentMonthBudget();
@@ -39,8 +38,7 @@ function DashBoard() {
 
   const getBudgetForSelectedMonthYear = () => {
     const filteredBudgets = allBudgets.filter((budgetItem) => {
-      const startDate = new Date(budgetItem.startDate);
-      return startDate.getFullYear() === selectedYear && startDate.getMonth() + 1 === selectedMonth;
+      return true
     });
     return filteredBudgets;
   };
@@ -106,33 +104,6 @@ function DashBoard() {
       });
     });
 
-    if (chartData.length === 0) {
-      chartData.push({
-        Category: 'Food',
-        Budget: getDefaultBudget('Food'),
-        Expenses: 0,
-        amt: 0,
-      });
-      chartData.push({
-        Category: 'Travel',
-        Budget: getDefaultBudget('Travel'),
-        Expenses: 0,
-        amt: 0,
-      });
-      chartData.push({
-        Category: 'Insurance',
-        Budget: getDefaultBudget('Insurance'),
-        Expenses: 0,
-        amt: 0,
-      });
-      chartData.push({
-        Category: 'Others',
-        Budget: getDefaultBudget('Others'),
-        Expenses: 0,
-        amt: 0,
-      });
-    }
-
     const dailyExpensesData = [];
     for (let day = 1; day <= daysInMonth; day++) {
       dailyExpensesData.push({
@@ -165,10 +136,10 @@ function DashBoard() {
 
   const transformChartDataForPieChart = () => {
     const { chartData } = generateChartData();
-  
+
     const labels = chartData.map(data => data.Category);
     const budgets = chartData.map(data => data.Budget);
-  
+
     const colorScale = schemeCategory10;
     const pieChartData = {
       labels: labels,
@@ -180,10 +151,10 @@ function DashBoard() {
         borderWidth: 1,
       }]
     };
-  
+
     return pieChartData;
   };
-  
+
 
   return (
     <div className="container">
@@ -206,7 +177,10 @@ function DashBoard() {
         <div className="charts">
           <DoubleBarChart data={generateChartData()} />
           <h2>Monthly Budget</h2>
-         <PieChart data={transformChartDataForPieChart()}/>
+          <PieChart data={transformChartDataForPieChart()} />
+          <div>
+            <Radarchart data={generateChartData()} />
+          </div>
           <div>
             <h2 style={{ textAlign: 'center' }}>Monthly Expenses</h2>
             <MonthCharts data={generateChartData()} />
